@@ -1,0 +1,14 @@
+{
+    "name": "fu-css",
+    "version": "1.0.0", 
+    "description": "一个开源可扩展的CSS样式库/An open-source and extensible CSS style library",
+    "main": "fu.css",
+    "files": ["fu.css", "fu.min.css"],
+    "repository": { 
+        "type": "git",
+        "url": "git+https://github.com/weijunfu/fu-css.git"
+    },
+    "keywords": ["fu", "style", "web", "css", "fu-css"],
+    "author": "weijunfu<ijunfu@163.com>",
+    "license": "AGPL-3.0"
+}
