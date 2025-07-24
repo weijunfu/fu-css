@@ -1,0 +1,27 @@
+/**
+ * 使用z-index-<number>样式来定义z-index，可使用--z-value进行扩展
+ */
+/* 自定义属性：--z-value */
+@property --z-value {
+    syntax: '<integer>';  /* 限定为整数类型 */
+    initial-value: 0;
+    inherits: false;
+}
+
+/* 匹配包含"z-index-"的样式，将--z-value值赋值给z-index */
+[class*="z-index-"] {
+    z-index: var(--z-value);
+}
+
+/* 特殊的z-index值 */
+.z-index-auto {
+    z-index: auto;
+}
+
+/* 动态提取数字并赋值给 --z-value */
+.z-index-1 { --z-value: 1; }
+.z-index-2 { --z-value: 2; }
+.z-index-3 { --z-value: 3; }
+.z-index-4 { --z-value: 4; }
+.z-index-5 { --z-value: 5; }
+.z-index-6 { --z-value: 6; }
