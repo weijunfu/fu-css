@@ -25,3 +25,28 @@
 .z-index-4 { --z-value: 4; }
 .z-index-5 { --z-value: 5; }
 .z-index-6 { --z-value: 6; }
+
+/**
+ * position
+ */
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.relative {
+    position: relative;
+}
+
+.static {
+    position: static;
+}
+
+.sticky {
+    position: sticky;
+}
+

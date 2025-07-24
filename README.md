@@ -30,3 +30,14 @@
 .z-index-10 { --z-value: 10; }
 .z-index-20 { --z-value: 20; }
 ```
+
+##### position
+> Utilities for controlling how an element is positioned in the document.
+
+|class|style|
+|--|--|
+|absolute|position: absolute;|
+|fixed|position: fixed;|
+|relative|position: relative;|
+|static|position: static;|
+|position|position: sticky;|
