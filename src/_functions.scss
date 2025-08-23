@@ -1,0 +1,6 @@
+@use "sass:string";
+
+// 调整 oklch 透明度
+@function oklch-alpha($color, $alpha) {
+    @return string.unquote("color(#{$color} / #{$alpha})");
+}

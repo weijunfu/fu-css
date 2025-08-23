@@ -1,0 +1,41 @@
+@use "functions";
+
+// 设置css属性
+@mixin set-property($property, $value) {
+    #{$property}: $value;
+}
+
+// 生成颜色变量
+@mixin gen-color-vars($color) {
+    @each $name, $value in $color {
+        --color-#{$name}: #{$value};
+    }
+}
+
+// 生成颜色class
+@mixin gen-color-class($arr, $property, $classPrefix: null) {
+    $prefix: if($classPrefix == null, '', "#{$classPrefix}-");
+
+    @each $key, $value in $arr {
+        .#{$prefix}#{$key} {
+            @include set-property($property, #{var(--color-#{$key})});
+        }
+    }
+}
+
+// 按清晰度生成颜色class
+$color-opacity-list: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
+@mixin gen-color-opacity-class($arr, $property, $classPrefix: null) {
+    $prefix: if($classPrefix == null, '', "#{$classPrefix}-");
+
+    @each $key, $value in $arr {
+        @each $opacity in $color-opacity-list {
+            $opy: calc($opacity / 100);
+
+            .#{$prefix}#{$key}-opacity-#{$opacity} {
+
+                @include set-property($property, functions.oklch-alpha(#{var(--color-#{$key})}, $opy));
+            }
+        }
+    }
+}

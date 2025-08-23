@@ -1,0 +1,28 @@
+/**
+ * fu-css
+ * @author: ijunfu
+ * @date: 2025.8.24
+ */
+@use "color";
+@use "mixins";
+
+:root {
+    // 黑色
+    --color-black: #000;
+    // 白色
+    --color-white: #fff;
+
+    // 颜色变量
+    @each $colorItem in color.$color-list {
+        @include mixins.gen-color-vars($colorItem);
+    }
+}
+
+@each $key, $value in color.$color2 {
+    @each $colorItem in color.$color-list {
+        // 颜色样式
+        @include mixins.gen-color-class($colorItem, $value, $key);
+        // 带有透明度的颜色样式
+        @include mixins.gen-color-opacity-class($colorItem, $value, $key);
+    }
+}
