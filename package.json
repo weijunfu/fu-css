@@ -1,6 +1,6 @@
 {
   "name": "@fu-css/fu-css",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/index.scss",
   "scripts": {
     "build:css": "sass src/index.scss dist/index.css",
@@ -8,7 +8,16 @@
     "build": "npm run build:css && npm run build:min",
     "watch": "sass --watch src/index.scss:dist/index.css src/index.scss:dist/index.min.css --style=expanded --style=compressed"
   },
-  "keywords": ["css", "scss", "color", "Atomic", "web", "css3", "web3", "UI"],
+  "keywords": [
+    "css",
+    "scss",
+    "color",
+    "Atomic",
+    "web",
+    "css3",
+    "web3",
+    "UI"
+  ],
   "author": "ijunfu <ijunfu@163.com> (https://weijunfu.github.io/)",
   "license": "MIT",
   "description": "基于scss, 参照tailwindcss实现样式原子化",
@@ -17,6 +26,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/weijunfu/fu-css.git" 
+    "url": "https://github.com/weijunfu/fu-css.git"
   }
 }
