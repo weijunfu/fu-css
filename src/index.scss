@@ -23,6 +23,6 @@
         // 颜色样式
         @include mixins.gen-color-class($colorItem, $value, $key);
         // 带有透明度的颜色样式
-        @include mixins.gen-color-opacity-class($colorItem, $value, $key);
+        @include mixins.gen-color-alpha-class($colorItem, $value, $key);
     }
 }

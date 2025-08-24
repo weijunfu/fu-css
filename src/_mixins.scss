@@ -24,17 +24,17 @@
 }
 
 // 按清晰度生成颜色class
-$color-opacity-list: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
-@mixin gen-color-opacity-class($arr, $property, $classPrefix: null) {
+$color-alpha-list: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
+@mixin gen-color-alpha-class($arr, $property, $classPrefix: null) {
     $prefix: if($classPrefix == null, '', "#{$classPrefix}-");
 
     @each $key, $value in $arr {
-        @each $opacity in $color-opacity-list {
-            $opy: calc($opacity / 100);
+        @each $alpha in $color-alpha-list {
+            $alpha-value: calc($alpha / 100);
 
-            .#{$prefix}#{$key}-opacity-#{$opacity} {
+            .#{$prefix}#{$key}-alpha-#{$alpha} {
 
-                @include set-property($property, functions.oklch-alpha(#{var(--color-#{$key})}, $opy));
+                @include set-property($property, functions.oklch-alpha($value, $alpha-value));
             }
         }
     }

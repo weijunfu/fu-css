@@ -1,5 +1,5 @@
 {
-  "name": "fu-css",
+  "name": "@fu-css/fu-css",
   "version": "0.0.1",
   "main": "src/index.scss",
   "scripts": {
@@ -14,5 +14,9 @@
   "description": "基于scss, 参照tailwindcss实现样式原子化",
   "devDependencies": {
     "sass": "^1.90.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weijunfu/fu-css.git" 
   }
 }

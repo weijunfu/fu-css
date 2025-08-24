@@ -2,5 +2,13 @@
 
 // 调整 oklch 透明度
 @function oklch-alpha($color, $alpha) {
-    @return string.unquote("color(#{$color} / #{$alpha})");
+    $color-str: #{$color}; // 转为字符串
+    $slash-index: str-index($color-str, '/');
+    $return: #{str-slice($color-str, 1, -2)} + " / " + #{$alpha} + ")";
+
+    // @debug "Color 1: ", $color-str;
+    // @debug "Color 2: ", #{str-slice($color-str, 1, -2)};
+    @debug "Color 3: ", $return;
+
+    @return $return;
 }
