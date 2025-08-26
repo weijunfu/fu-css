@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 @use "functions";
 
 // 设置css属性
@@ -37,5 +39,13 @@ $color-alpha-list: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
                 @include set-property($property, functions.oklch-alpha($value, $alpha-value));
             }
         }
+    }
+}
+
+// 生成样式
+@mixin gen-class($prefix, $subfix, $property, $value) {
+
+    .#{$prefix}-#{meta.inspect($subfix)} {
+        @include set-property($property, $value);
     }
 }

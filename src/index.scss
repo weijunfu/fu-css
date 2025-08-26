@@ -5,6 +5,7 @@
  */
 @use "color";
 @use "mixins";
+@use "svg";
 
 :root {
     // 黑色
@@ -18,10 +19,36 @@
     }
 }
 
+// 黑、白两色
+$colorList:(
+    white: var(--color-white),
+    black: var(--color-black)
+);
+
+$colorClassList: (
+    fill: fill, 
+    stroke: stroke,
+    text: color,
+    border: border-color,
+    bg: background-color,
+    outline: outline-color,
+    decoration: text-decoration-color,
+    accent: accent-color,
+    caret: caret-color
+);
+
+// 黑、白 颜色
+@each $colorName, $colorValue in $colorList {
+    @each $classKey, $classProperty in $colorClassList {
+        @include mixins.gen-class($classKey, $colorName, $classProperty, $colorValue);
+    }
+}
+
 @each $key, $value in color.$color2 {
     @each $colorItem in color.$color-list {
         // 颜色样式
         @include mixins.gen-color-class($colorItem, $value, $key);
+
         // 带有透明度的颜色样式
         @include mixins.gen-color-alpha-class($colorItem, $value, $key);
     }

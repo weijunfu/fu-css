@@ -1,0 +1,29 @@
+@use "mixins";
+@use "color";
+
+$svg-values: (
+    none: none,
+    inherit: inherit,
+    current: currentColor,
+    transparent: transparent
+);
+
+$svg-property: fill, stroke;
+
+// svg 特殊值
+@each $key, $value in $svg-values {
+    @each $class in $svg-property {
+        @include mixins.gen-class($class, $key, $class, $value);
+    }
+}
+
+// svg 颜色
+@each $property in $svg-property {
+    @each $colorItem in color.$color-list {
+        @each $colorName, $colorValue in $colorItem {
+            .#{$property}-#{$colorName} {
+                @include mixins.set-property($property, #{var(--color-#{$colorName})});
+            }
+        }
+    }
+}
