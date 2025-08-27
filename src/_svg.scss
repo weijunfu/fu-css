@@ -1,5 +1,6 @@
 @use "mixins";
 @use "color";
+@use "functions";
 
 $svg-values: (
     none: none,
@@ -25,5 +26,15 @@ $svg-property: fill, stroke;
                 @include mixins.set-property($property, #{var(--color-#{$colorName})});
             }
         }
+    }
+}
+
+$stroke-width: 0, 1, 1.5, 2, 3, 4, 6, 8;
+
+@each $width in $stroke-width {
+    $w: functions.str-replace(#{$width}, ".", "_");
+    
+    .stroke-width-#{$w} {
+        stroke-width: $width;
     }
 }
