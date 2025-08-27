@@ -1,6 +1,6 @@
 {
   "name": "@fu-css/fu-css",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "src/index.scss",
   "scripts": {
     "build:css": "sass src/index.scss dist/index.css",
