@@ -1,0 +1,22 @@
+
+@use "mixins";
+
+// border-collapse
+$border-collapse: collapse, separate;
+// border-spacing
+$border-spacing: (
+    none: 0,
+    sm: 0.25em,
+    md: 0.5em,
+    lg: 1em
+);
+// table-layout
+$table-layout: auto, fixed;
+// caption-side
+$caption-side: top, bottom;
+
+@include mixins.batch-class-by-array($border-collapse, 'border', border-collapse);
+@include mixins.batch-class-by-array($table-layout, 'table', table-layout);
+@include mixins.batch-class-by-array($caption-side, 'caption', caption-side);
+
+@include mixins.batch-class-by-map($border-spacing, 'border-spacing', border-spacing);

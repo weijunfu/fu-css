@@ -7,18 +7,7 @@
 @use "color";
 @use "mixins";
 @use "svg";
-
-:root {
-    // 黑色
-    --color-black: #000;
-    // 白色
-    --color-white: #fff;
-
-    // 颜色变量
-    @each $colorItem in color.$color-list {
-        @include mixins.gen-color-vars($colorItem);
-    }
-}
+@use "table";
 
 // 黑、白两色
 $colorList:(

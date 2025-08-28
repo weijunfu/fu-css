@@ -49,3 +49,19 @@ $color-alpha-list: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
         @include set-property($property, $value);
     }
 }
+
+@mixin batch-class-by-array($arr, $prefix, $property) {
+    @each $key in $arr {
+        .#{$prefix}-#{$key} {
+            @include set-property($property, $key);
+        }
+    }
+}
+
+@mixin batch-class-by-map($map, $prefix, $property) {
+    @each $key, $val in $map {
+        .#{$prefix}-#{$key} {
+            #{$property}: $val;
+        }
+    }
+}
